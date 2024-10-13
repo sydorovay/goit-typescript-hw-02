@@ -11,8 +11,8 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
   if (!image) return null;
   return (
     <ReactModal
-   isOpen={true} 
-      onRequestClose={onClose} 
+      isOpen={true}
+      onRequestClose={onClose}
       contentLabel="Image Modal"
       ariaHideApp={false}
       className={css.modal}
