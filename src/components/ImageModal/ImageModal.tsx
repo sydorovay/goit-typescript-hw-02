@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import css from './ImageModal.module.css';
 import { ImageType } from '../types/types';
 
@@ -12,11 +12,11 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
   if (!image) return null;
 
   return (
-    <ReactModal isOpen={!!image} onRequestClose={onClose} contentLabel="Image Modal">
+    <Modal isOpen={!!image} onRequestClose={onClose} contentLabel="Image Modal">
       <h2>{image.alt_description}</h2>
       <img src={image.urls.regular} alt={image.alt_description} />
       <button onClick={onClose}>Close</button>
-    </ReactModal>
+    </Modal>
   );
 };
 

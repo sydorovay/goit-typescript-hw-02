@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { useState, useEffect, useRef } from 'react'; 
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import Loader from './components/Loader/Loader';
@@ -8,10 +9,13 @@ import ImageModal from './components/ImageModal/ImageModal';
 import css from './App.module.css';
 import { Toaster } from 'react-hot-toast';
 import axios from 'axios';
-import { ImageType } from './components/types/types'; // Імпорт типу для зображення
+import { ImageType } from './components/types/types'; 
+import Modal from 'react-modal';
 
 const ACCESS_KEY = '6ExAHC6-du7tOAIV_7CaxGFdf31Pi8h-TkJXD2D6UvY';
 const BASE_URL = 'https://api.unsplash.com';
+
+Modal.setAppElement('#root');
 
 const App: React.FC = () => {
   const [images, setImages] = useState<ImageType[]>([]);

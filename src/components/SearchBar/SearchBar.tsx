@@ -2,9 +2,9 @@ import { toast, Toaster } from 'react-hot-toast';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import css from './SearchBar.module.css';
 
-type SearchBarProps = {
+interface SearchBarProps {
   onSubmit: (query: string) => void;
-};
+}
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
   const [query, setQuery] = useState<string>('');
@@ -37,7 +37,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
         />
         <button className={css.button} type="submit">Search</button>
       </form>
-      <Toaster className={css.toaster} />
+      <Toaster />
     </header>
   );
 };
