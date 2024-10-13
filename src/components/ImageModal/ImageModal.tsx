@@ -12,18 +12,15 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
   if (!image) return null;
 
   return (
-    <Modal
-      isOpen={!!image}
-      onRequestClose={onClose}
+    <Modal 
+      isOpen={true} // modal завжди відкритий, поки є зображення
+      onRequestClose={onClose} 
       contentLabel="Image Modal"
-      className={css.modal}
-      overlayClassName={css.overlay}
+      ariaHideApp={false} // Додано для уникнення помилок з aria
     >
-      <div className={css.modalContent}>
-        <h2 className={css.title}>{image.alt_description}</h2>
-        <img className={css.image} src={image.urls.regular} alt={image.alt_description} />
-        <button className={css.closeButton} onClick={onClose}>Close</button>
-      </div>
+      <h2>{image.alt_description}</h2>
+      <img src={image.urls.regular} alt={image.alt_description} />
+      <button onClick={onClose}>Close</button>
     </Modal>
   );
 };
