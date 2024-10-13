@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useRef } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import Loader from './components/Loader/Loader';
@@ -23,6 +23,8 @@ const App: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
 
+  const lastImageRef = useRef<HTMLLIElement | null>(null);
+
   useEffect(() => {
     if (query) {
       fetchImages();
@@ -44,8 +46,12 @@ const App: React.FC = () => {
       const data = response.data;
       setImages((prevImages) => [...prevImages, ...data.results]);
       setHasMore(page < data.total_pages);
-    } catch (error) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
     setLoading(false);
   };
@@ -75,8 +81,8 @@ const App: React.FC = () => {
     <div className={css.app}>
       <SearchBar onSubmit={handleSearch} />
       <Toaster />
-      {error && <ErrorMessage message={error} />}
-      <ImageGallery images={images} onImageClick={handleImageClick} />
+      {error && <ErrorMessage error={error} />}
+      <ImageGallery images={images} onImageClick={handleImageClick} lastImageRef={lastImageRef} />
       {loading && <Loader />}
       {!loading && images.length === 0 && query && (
         <p className={css.noImagesText}>No images available for loading</p>
