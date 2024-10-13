@@ -19,12 +19,14 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
       ariaHideApp={false}
       className={css.modal} 
       overlayClassName={css.overlay}
-      shouldCloseOnOverlayClick={true} // Додано, щоб закривати при кліку на фон
-      closeTimeoutMS={200} // Додано для анімації при закритті
+      shouldCloseOnOverlayClick={true}
+      closeTimeoutMS={200}
     >
-      <h2>{image.alt_description}</h2>
-      <img src={image.urls.regular} alt={image.alt_description} />
-      <button onClick={onClose}>Close</button>
+      <div>
+        <h2>{image.alt_description || 'Image'}</h2>
+        <img src={image.urls.regular} alt={image.alt_description || 'Image'} />
+        <button onClick={onClose}>Close</button>
+      </div>
     </Modal>
   );
 };
