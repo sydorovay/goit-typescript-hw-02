@@ -1,0 +1,21 @@
+.imageGallery {
+  margin-top: 50px ;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.imageGalleryItem {
+  flex: 1 1 calc(25% - 10px);
+  box-sizing: border-box;
+  max-width: calc(25% - 10px);
+}
+
+.imageGalleryImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}

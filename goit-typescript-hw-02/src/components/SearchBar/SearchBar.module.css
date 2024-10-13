@@ -1,0 +1,9 @@
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  background-color: #3747AC;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
