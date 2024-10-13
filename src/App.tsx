@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react'; 
+import React, { useState, useEffect, useRef } from 'react'; 
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import Loader from './components/Loader/Loader';
@@ -15,7 +14,8 @@ import Modal from 'react-modal';
 const ACCESS_KEY = '6ExAHC6-du7tOAIV_7CaxGFdf31Pi8h-TkJXD2D6UvY';
 const BASE_URL = 'https://api.unsplash.com';
 
-Modal.setAppElement('#root');
+// Визначаємо кореневий елемент для модального вікна
+(Modal as any).setAppElement('#root'); // Використовуйте тільки один раз
 
 const App: React.FC = () => {
   const [images, setImages] = useState<ImageType[]>([]);
