@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './ImageGallery.module.css';
-import { ImageType } from '../../types'; 
+import { ImageType } from '../types/types'; 
 
 interface ImageGalleryProps {
   images: ImageType[];

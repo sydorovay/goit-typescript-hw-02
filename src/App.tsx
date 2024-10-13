@@ -8,7 +8,7 @@ import ImageModal from './components/ImageModal/ImageModal';
 import css from './App.module.css';
 import { Toaster } from 'react-hot-toast';
 import axios from 'axios';
-import { ImageType } from './types'; // Імпорт типу для зображення
+import { ImageType } from './components/types/types'; // Імпорт типу для зображення
 
 const ACCESS_KEY = '6ExAHC6-du7tOAIV_7CaxGFdf31Pi8h-TkJXD2D6UvY';
 const BASE_URL = 'https://api.unsplash.com';
